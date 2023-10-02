@@ -1,0 +1,48 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <memory>
+
+std::vector<int>* simple_int()
+{
+
+  std::vector<bool> vec(100, true);
+
+  for (int i = 2; i < vec.size(); ++i){
+     int st = i;
+   std::cout << st << '\n';
+
+   if (st* st < vec.size()) {
+     break;
+   }
+
+     std::cout << i << '\n';
+     for (int j = st*st; j < vec.size(); j += st){
+       vec[j] = false;
+     }
+  }
+
+  std::vector<int>* vec_int;
+  auto p = vec.begin();
+  while (p != vec.end()) {
+    p = std::find_if(p, vec.end(), [](bool i) {return i == true;});
+    vec_int->push_back(p - vec.begin());
+  }
+
+
+  std::cout << "In main " << vec_int->size() << "\n";
+  return vec_int;
+}
+
+uint16_t gen_simpl() {
+  return 0;
+}
+
+
+int main(){
+
+  std::vector<int>* v = simple_int();
+  std::cout << "In main " << v->size() << "\n";
+
+
+}
